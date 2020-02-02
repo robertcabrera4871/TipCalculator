@@ -10,13 +10,16 @@
         android:id="@+id/totalAmountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="103dp"
+        android:layout_marginLeft="103dp"
         android:layout_marginEnd="102dp"
         android:layout_marginRight="102dp"
         android:layout_marginBottom="78dp"
         android:text="@string/total"
         app:fontFamily="casual"
         app:layout_constraintBottom_toTopOf="@+id/twentyFiveTipButton"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/twentyTipButton" />
 
     <Button
         android:id="@+id/fifteenTipButton"
@@ -24,22 +27,26 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
         android:layout_marginLeft="37dp"
+        android:layout_marginBottom="54dp"
         android:onClick="tipButtonClicked"
         android:text="@string/add_15"
-        app:layout_constraintBaseline_toBaselineOf="@+id/twentyTipButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/twentyTipButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginLeft="37dp"
         android:layout_marginEnd="33dp"
         android:layout_marginRight="33dp"
         android:layout_marginBottom="54dp"
         android:onClick="tipButtonClicked"
         android:text="@string/add_20"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/twentyFiveTipButton" />
+        app:layout_constraintEnd_toStartOf="@+id/twentyFiveTipButton"
+        app:layout_constraintStart_toEndOf="@+id/fifteenTipButton" />
 
     <Button
         android:id="@+id/twentyFiveTipButton"
@@ -47,9 +54,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
+        android:layout_marginBottom="54dp"
         android:onClick="tipButtonClicked"
         android:text="@string/add_25"
-        app:layout_constraintBaseline_toBaselineOf="@+id/twentyTipButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView

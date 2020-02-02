@@ -13,12 +13,12 @@ class MainActivity : AppCompatActivity() {
     }
     //Handles adding tip and changing tip and total views
     fun tipButtonClicked(view: View){
-        var tipPercent: Double = determineTip(view)
+        val tipPercent: Double = determineTip(view)
         if(totalInputView.text.toString() != "") {
 
-            var totalInput: Double = totalInputView.text.toString().toDouble()
-            var tip = totalInput * tipPercent
-            var total = totalInput + tip
+            val totalInput: Double = totalInputView.text.toString().toDouble()
+            val tip = totalInput * tipPercent
+            val total = totalInput + tip
 
             tipAmountText.text = getString(R.string.tip).plus(tip)
             totalAmountText.text = getString(R.string.total).plus(total)
