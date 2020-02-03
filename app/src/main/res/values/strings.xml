@@ -8,4 +8,5 @@
     <string name="tip">Tip:\t$</string>
     <string name="input_total">Input Total</string>
     <string name="input_total_bill">Input total on bill</string>
+    <string name="enter_percent_tip">Enter percent tip</string>
 </resources>
