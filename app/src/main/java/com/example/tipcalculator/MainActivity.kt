@@ -26,7 +26,7 @@ Need to add rounding on calculations.
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            if (tipInputView.text.toString() != "" && totalInputView.text.toString() != "") {
+            if (tipInputView.text.toString() != "" && totalInputView.text.toString() != "" && !totalInputView.text.toString().startsWith('.')) {
                 tip = 0.0
                 total = 0.0
                 tipPercentInput = tipInputView.text.toString().toDouble()
