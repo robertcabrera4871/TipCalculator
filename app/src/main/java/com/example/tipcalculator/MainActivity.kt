@@ -6,17 +6,14 @@ import android.text.Editable
 import android.text.TextWatcher
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.math.round
+
 class MainActivity : AppCompatActivity() {
 
     /*
 Tip Calculator takes price and finds user given tip
 total given. Adds that tip to the total
-Need to add rounding on calculations.
 */
-    var tipPercentInput: Double = 0.0
-    var totalInput: Double = 0.0
-    var tip: Double = 0.0
-    var total: Double = 0.0
+    var tipCalculator: Calculator = Calculator()
 
     inner class MyTextWatcher : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
@@ -26,12 +23,17 @@ Need to add rounding on calculations.
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            if (tipInputView.text.toString() != "" && totalInputView.text.toString() != "" && !totalInputView.text.toString().startsWith('.')) {
-                tip = 0.0
-                total = 0.0
-                tipPercentInput = tipInputView.text.toString().toDouble()
-                totalInput = totalInputView.text.toString().toDouble()
-                calculateAndUpdate()
+            if (tipInputView.text.toString() != "" && totalInputView.text.toString() != "" && !totalInputView.text.toString().startsWith(
+                    '.'
+                )
+            ) {
+                tipCalculator.tip = 0.0
+                tipCalculator.total = 0.0
+                tipCalculator.tipPercentInput = tipInputView.text.toString().toDouble()
+                tipCalculator.totalInput = totalInputView.text.toString().toDouble()
+                tipCalculator.calculateAndUpdate()
+                tipAmountText.text = getString(R.string.tip).plus(round(tipCalculator.tip * 100.0) / 100.0)
+                totalAmountText.text = getString(R.string.total).plus(round(tipCalculator.total * 100.0) / 100.0)
             }
         }
 
@@ -43,11 +45,5 @@ Need to add rounding on calculations.
         tipInputView.addTextChangedListener(MyTextWatcher())
         totalInputView.addTextChangedListener(MyTextWatcher())
     }
+}
 
-    fun calculateAndUpdate() {
-            tip = totalInput * (tipPercentInput / 100.0)
-            total += totalInput + tip
-            tipAmountText.text = getString(R.string.tip).plus(round(tip * 100.0) / 100.0)
-            totalAmountText.text = getString(R.string.total).plus(round(total * 100.0) / 100.0)
-        }
-    }
